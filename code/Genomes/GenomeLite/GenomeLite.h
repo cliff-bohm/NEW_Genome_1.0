@@ -23,15 +23,12 @@ class GenomeLite : public AbstractGenome
 private:
     SegmentList* List;
 
-    void Reallocate();
-
 public:
     /** (deleted) default constructor **/
-    GenomeLite() = delete;
+    GenomeLite() = default;
 
     /** size constructor **/
-    GenomeLite(size_t size) 
-        : List(new SegmentList(size)) {}
+    GenomeLite(size_t size);
 
     /** size constructor **/
     GenomeLite(const GenomeLite &genome) 

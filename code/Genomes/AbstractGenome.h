@@ -99,12 +99,12 @@ namespace GN {
 
     template <class T>
     auto genomeRead(AbstractGenome* genome, size_t index) -> T& {
-        return reinterpret_cast<T*>(genome->data() + index)[0];
+        return reinterpret_cast<T*>(genome->data(index))[0];
     }
 
     template <class T>
     auto genomeWrite(AbstractGenome* genome, size_t index, const T& value) -> void {
-        memcpy(genome->data() + index, &value, sizeof(T));
+        memcpy(genome->data(index), &value, sizeof(T));
     }
 
     // ==============================================

@@ -6,15 +6,17 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # set the project name
 project( test )
-add_subdirectory( Genomes )
+
 
 # include source
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Genomes)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Genomes/GenomeLite)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Tools)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Tests)
+get_filename_component(PARENT_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
 
+include_directories(${PARENT_DIR}/Genomes)
+include_directories(${PARENT_DIR}/Genomes/GenomeLite)
+include_directories(${PARENT_DIR}/Tools)
+include_directories(${PARENT_DIR}/Tests)
 
+add_subdirectory(${PARENT_DIR}/Genomes ${CMAKE_CURRENT_BINARY_DIR}/Genomes)
 
 # include flags
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall" )

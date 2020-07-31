@@ -13,7 +13,6 @@ public:
 
 	TestGenome(size_t _size);
 	~TestGenome() override {
-		std::cout << "done" << std::endl;
 	}
 
 	// copy constructor to copy sites vector
